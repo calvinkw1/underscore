@@ -2,6 +2,14 @@ var myFunctions = require("../src/underscore");
 var expect = require("chai").expect;
 _ = require("underscore");
 
+describe('flatten', function() {
+  it('can flatten nested arrays', function() {
+    var nestedArray = [[[[[[[[[[[[[[[[[[[[[[[[[[[[1, [2], [[[[3]]], [[[4]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]];
+
+    expect(myFunctions.flatten(nestedArray)).to.eql([1,2,3,4]);
+  });
+});
+
 describe('first', function() {
   it('should be able to pull out the first element of an array', function() {
     expect(myFunctions.first([1,2,3])).to.equal(1);
@@ -65,15 +73,9 @@ describe('contains', function() {
   });
 
   it('should return true if a collection contains a user-specified value', function() {
-    expect(myFunctions.contains([  4,   5,   6], 5)).to.equal(true);
+    expect(myFunctions.contains([4, 5, 6], 5)).to.equal(true);
   });
 
 });
 
-describe('flatten', function() {
-  it('can flatten nested arrays', function() {
-    var nestedArray = [[[[[[[[[[[[[[[[[[[[[[[[[[[[1, [2], [[[[3]]], [[[4]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]];
 
-    expect(myFunctions.flatten(nestedArray)).to.eql([1,2,3,4]);
-  });
-});
