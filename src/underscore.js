@@ -8,7 +8,7 @@ var myFunctions = {
     } else if (n === undefined) {
       return array[0];
     } else {
-      return array.splice(0, n);
+      return array.slice(0, n);
     }
   },
 
